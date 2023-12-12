@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Functions {
     private double balance;
 
@@ -26,4 +28,17 @@ public class Functions {
     public void showBalance(){
         System.out.println("Ditt saldo är: " + balance);
     }
+    public void pay(double amount){
+        if(balance >= amount){
+            balance = (balance - amount);
+            System.out.println("Betalning på " + amount + "kr" + " registrerades");
+            } else {
+            System.out.println("Du har inte tillräckligt med pengar på kontot");
+        }
+
+    }
+    public void loan(double amount){
+            balance += amount;
+        System.out.println("Du fick lån på " + amount +" kr");
+        }
 }
