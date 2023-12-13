@@ -11,7 +11,7 @@ public class UserInterface extends ContactsFromFile {
     }
 
     public void showMenu() {
-        System.out.println("1. Insättning\n2. Uttag\n3. Se saldo\n4. Kontakta oss\n5. Logga ut");
+        System.out.println("1. Insättning\n2. Uttag\n3. Se saldo\n4. Hantera lån\n5. Kontakta oss\n6. Logga ut");
     }
 
     public boolean userChoice() throws InterruptedException {
@@ -23,8 +23,9 @@ public class UserInterface extends ContactsFromFile {
                 case 1 -> deposit();
                 case 2 -> withdraw();
                 case 3 -> functions.showBalance();
-                case 4 -> contactUs();
-                case 5 -> {
+                case 4 -> handleLoan();
+                case 5 -> contactUs();
+                case 6 -> {
                     return logOut();
                 }
             }
@@ -70,5 +71,23 @@ public class UserInterface extends ContactsFromFile {
         Thread.sleep(1000);
         System.out.println("Välkommen åter");
         return true;
+    }
+    private void handleLoan() throws InterruptedException {
+        System.out.println("Välj typ av lån\n" +
+                "1. Bolån\n" +
+                "2. privatlån");
+        scanner.nextLine();
+        String typeOfLoan = scanner.nextLine();
+        if(typeOfLoan.equals("1")){
+            System.out.println("Hur mycket vill du låna för bolån");
+            double loanAmount = scanner.nextDouble();
+            functions.loan(loanAmount);
+            Thread.sleep(1500);
+        }else if (typeOfLoan.equals("2")){
+            System.out.println("Hur mycket vill du låna för privatlån");
+            double loanAmount = scanner.nextDouble();
+            functions.loan(loanAmount);
+            Thread.sleep(1500);
+        }
     }
 }
