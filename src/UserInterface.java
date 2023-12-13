@@ -20,20 +20,13 @@ public class UserInterface extends ContactsFromFile {
             int userChoice = getUserChoice();
 
             switch (userChoice) {
-                case 1:
-                    deposit();
-                    break;
-                case 2:
-                    withdraw();
-                    break;
-                case 3:
-                    functions.showBalance();
-                    break;
-                case 4:
-                    contactUs();
-                    break;
-                case 5:
+                case 1 -> deposit();
+                case 2 -> withdraw();
+                case 3 -> functions.showBalance();
+                case 4 -> contactUs();
+                case 5 -> {
                     return logOut();
+                }
             }
         }
     }

@@ -30,7 +30,7 @@ public class Banksystem {
             throw new RuntimeException(e);
         }
     }
-    public void logIn(){
+    public boolean logIn(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println(logInBirth);
@@ -39,10 +39,10 @@ public class Banksystem {
         System.out.println(logInName);
         String customerName = scan.nextLine();
 
-        authenticateMember(personNumber, customerName);
+        return authenticateMember(personNumber, customerName);
     }
-    private void authenticateMember(String personNumber, String customerName){
-        try(Scanner fileScanner = new Scanner(new java.io.File(memberFile))){
+    private boolean authenticateMember(String personNumber, String customerName) {
+        try(Scanner fileScanner = new Scanner(new java.io.File(memberFile))) {
             boolean found = false;
 
             while(fileScanner.hasNextLine()){
@@ -56,11 +56,14 @@ public class Banksystem {
             }
             if (found){
                 System.out.println("Inloggad");
+                return true;
             } else {
                 System.out.println("Felaktig inmatning av personummer eller namn");
+                return false;
             }
         } catch (IOException e){
             e.printStackTrace();
         }
+        return false;
     }
 }

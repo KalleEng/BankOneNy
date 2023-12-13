@@ -8,11 +8,13 @@ public class Main {
         UserInterface ui = new UserInterface(scanner, functions);
 
         while(true){
-            System.out.print("1. Logga in\n2. Registrera nytt konto\n3. Exit\n ");
+            System.out.print("1. Logga in\n2. Registrera nytt konto\n3. Exit\n");
             String choice = scanner.next();
 
             if (choice.equals("1")){
-                banksystem.logIn();
+                if (!banksystem.logIn()) {
+                    continue;
+                }
                 ui.userChoice();
             } else if (choice.equals("2")) {
                 banksystem.registerMember();
