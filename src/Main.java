@@ -3,8 +3,26 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Banksystem banksystem = new Banksystem();
+        Scanner scanner = new Scanner(System.in);
+        Functions functions = new Functions();
+        UserInterface ui = new UserInterface(scanner, functions);
 
         while(true){
+            System.out.print("Skriv 1 för att logga in eller 2 för att registrera dig: ");
+            String choice = scanner.next();
+
+            if (choice.equals("1")){
+                banksystem.logIn();
+                ui.userChoice();
+            } else if (choice.equals("2")) {
+                banksystem.registerMember();
+                ui.userChoice();
+            } else {
+                System.out.println("Ogiltig inmatning. Försök igen");
+            }
+        }
+
+        /*while(true){
             System.out.print("Skriv 1 för att logga in eller 2 för att registerar dig: ");
             Scanner scan = new Scanner(System.in);
             String choice = scan.next();
@@ -16,7 +34,9 @@ public class Main {
             } else {
                 System.out.println("Ogiltigt val. Försök igen");
             }
-        }
+        }*/
+    }
+}
         /*Scanner s = new Scanner(System.in);
         System.out.println("Välkommen!");
         while (true) {
@@ -62,5 +82,3 @@ public class Main {
                     break;
             }
         }*/
-    }
-}
