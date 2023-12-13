@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Banksystem banksystem = new Banksystem();
         Scanner scanner = new Scanner(System.in);
         Functions functions = new Functions();
         UserInterface ui = new UserInterface(scanner, functions);
 
         while(true){
-            System.out.print("Skriv 1 för att logga in eller 2 för att registrera dig: ");
+            System.out.print("1. Logga in\n2. Registrera nytt konto\n3. Exit\n ");
             String choice = scanner.next();
 
             if (choice.equals("1")){
@@ -17,6 +17,8 @@ public class Main {
             } else if (choice.equals("2")) {
                 banksystem.registerMember();
                 ui.userChoice();
+            }else if (choice.equals("3")){
+                System.exit(0);
             } else {
                 System.out.println("Ogiltig inmatning. Försök igen");
             }

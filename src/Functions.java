@@ -1,4 +1,4 @@
-public class Functions {
+public class Functions extends ContactsFromFile {
     private double balance;
 
 
@@ -24,6 +24,6 @@ public class Functions {
         }
     }
     public void showBalance(){
-        System.out.println("Ditt saldo är: " + balance);
+        System.out.println("Ditt saldo är: " + setTextYellow + balance + turnOffTextYellow);
     }
 }

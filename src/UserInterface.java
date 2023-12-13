@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class UserInterface {
+public class UserInterface extends ContactsFromFile {
     private Scanner scanner;
     private Functions functions;
 
@@ -14,7 +14,7 @@ public class UserInterface {
         System.out.println("1. Insättning\n2. Uttag\n3. Se saldo\n4. Kontakta oss\n5. Logga ut");
     }
 
-    public boolean userChoice() {
+    public boolean userChoice() throws InterruptedException {
         while (true) {
             showMenu();
             int userChoice = getUserChoice();
@@ -51,7 +51,7 @@ public class UserInterface {
 
     private void deposit() {
         functions.showBalance();
-        System.out.print("Sätt in belopp att sätta in: ");
+        System.out.print("Skriv belopp att sätta in: ");
         double depositAmount = scanner.nextDouble();
 
         if (depositAmount >= 0) {
@@ -69,11 +69,12 @@ public class UserInterface {
     }
 
     private void contactUs() {
-
+        getContacts();
     }
 
-    private boolean logOut() {
+    private boolean logOut() throws InterruptedException {
         System.out.println("Du är utloggad");
+        Thread.sleep(1000);
         System.out.println("Välkommen åter");
         return true;
     }
