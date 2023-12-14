@@ -56,10 +56,8 @@ public class Banksystem {
             if (found){
                 System.out.println("Inloggad");
                 return true;
-            } else {
-                System.out.println("Felaktig inmatning av personummer eller namn");
-                return false;
             }
+            System.out.println("Felaktig inmatning av personummer eller namn");
         } catch (IOException e){
             e.printStackTrace();
         }
