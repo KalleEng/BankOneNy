@@ -42,12 +42,20 @@ public class bankFacade {
         functions.showBalance();
     }
 
+    public void Spärra(){
+        functions.SpärraKonto();
+    }
+
     public void Pay(double amount){
         functions.pay(amount);
     }
 
     public void Loan(double amount){
         functions.loan(amount);
+    }
+
+    public void AktiveraOnlineKöp(){
+        functions.AktiveraOnlineKöp();
     }
 
 }
