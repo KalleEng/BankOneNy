@@ -24,7 +24,7 @@ public class BankFacade {
     }
 
     public boolean Login() {
-      return   banksystem.logIn();
+      return banksystem.logIn();
 
     }
 
@@ -65,7 +65,7 @@ public class BankFacade {
     }
 
     public void activateOnlinePurchases(){
-        functions.activateOnlinePurchases();
+        ui.activateOnlinePurchases();
     }
     public boolean userChoice() throws InterruptedException {
         return ui.userChoice();
