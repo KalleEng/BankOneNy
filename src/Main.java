@@ -3,9 +3,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-    bankFacade bf = new bankFacade();
+    BankFacade bf = new BankFacade();
+    Scanner scanner = new Scanner(System.in);
 
-    Scanner s = new Scanner(System.in);
+            while(true){
+                    System.out.print("1. Logga in\n2. Registrera nytt konto\n3. Exit\n");
+                    String choice = scanner.next();
+
+                    if (choice.equals("1")){
+
+                            if (bf.Login()) {
+                                    bf.userChoice();
+                            }
+                    } else if (choice.equals("2")) {
+                            bf.Register();
+                            bf.userChoice();
+                    }else if (choice.equals("3")){
+                            System.exit(0);
+                    } else {
+                            System.out.println("Ogiltig inmatning. Försök igen");
+                    }
+            }
+
+    /*Scanner s = new Scanner(System.in);
         System.out.println("Välkommen!");
                 while (true) {
                 System.out.println("Välj ett av följande alternativen\n1. Logga In\n2. Registrera dig\n3. Insättning\n" +
@@ -87,12 +107,12 @@ public class Main {
                                         System.out.println("1 för att spärra 2 för att avbryta");
                                         String choice = s.nextLine();
                                         if(choice.equals("1")){
-                                                bf.Spärra();
+                                                bf.blockAccount();
                                         }else System.out.println("Du avbröt");
                                         Thread.sleep(1500);
                                         break;
                                 case 10:
-                                        bf.AktiveraOnlineKöp();
+                                        bf.activateOnlinePurchases();
                                         Thread.sleep(1500);
                                         break;
                                 case 11:
@@ -103,6 +123,6 @@ public class Main {
                                         System.exit(0);
                                         break;
                 }
-        }
+        }*/
     }
 }

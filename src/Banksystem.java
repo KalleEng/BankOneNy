@@ -9,6 +9,14 @@ public class Banksystem {
     private String logInBirth = "Personnummer: ";
     private String logInName = "Namn: ";
 
+    public String getLogInBirth() {
+        return logInBirth;
+    }
+
+    public String getLogInName() {
+        return logInName;
+    }
+
     public void registerMember(){
         Scanner scan = new Scanner(System.in);
 

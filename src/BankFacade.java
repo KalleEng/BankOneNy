@@ -1,29 +1,39 @@
-public class bankFacade {
+import java.util.Scanner;
+
+public class BankFacade {
 
     private ContactsFromFile contactsFromFile;
     private Banksystem banksystem;
     private Functions functions;
+    private UserInterface ui;
 
-    public bankFacade(){
+    public Functions getFunctions() {
+        return functions;
+    }
+
+    public BankFacade(){
         contactsFromFile = new ContactsFromFile();
         banksystem = new Banksystem();
         functions = new Functions();
+        ui = new UserInterface(new Scanner(System.in), functions, this);
+
     }
 
     public void Register(){
         banksystem.registerMember();
     }
 
-    public void Login(){
-        banksystem.logIn();
+    public boolean Login() {
+      return   banksystem.logIn();
+
     }
 
-    public void Save(String personNumber, String customerName){
+        public void Save(String personNumber, String customerName){
         banksystem.saveMember(personNumber, customerName);
     }
 
-    public void Authenticate(String personNumber, String customerName){
-        banksystem.authenticateMember(personNumber, customerName);
+    public boolean authenticate(String personNumber, String customerName){
+        return banksystem.authenticateMember(personNumber, customerName);
     }
 
     public void Contacts(){
@@ -42,8 +52,8 @@ public class bankFacade {
         functions.showBalance();
     }
 
-    public void Spärra(){
-        functions.SpärraKonto();
+    public void blockAccount(){
+        functions.blockAccount();
     }
 
     public void Pay(double amount){
@@ -54,8 +64,11 @@ public class bankFacade {
         functions.loan(amount);
     }
 
-    public void AktiveraOnlineKöp(){
-        functions.AktiveraOnlineKöp();
+    public void activateOnlinePurchases(){
+        functions.activateOnlinePurchases();
+    }
+    public boolean userChoice() throws InterruptedException {
+        return ui.userChoice();
     }
 
 }

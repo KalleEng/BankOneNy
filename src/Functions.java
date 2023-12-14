@@ -47,11 +47,11 @@ public class Functions extends ContactsFromFile {
         System.out.println("Du fick lån på " + amount + " kr");
     }
 
-    public void SpärraKonto(){
+    public void blockAccount(){
         System.out.println("Kontot är spärrat!");
     }
 
-    public void AktiveraOnlineKöp(){
+    public void activateOnlinePurchases(){
         System.out.println("Online köp är aktiverat");
     }
 }
