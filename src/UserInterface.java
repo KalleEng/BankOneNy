@@ -13,7 +13,7 @@ public class UserInterface extends ContactsFromFile {
     }
 
     public void showMenu() {
-        System.out.println("1. Insättning\n2. Uttag\n3. Se saldo\n4. Hantera lån\n5. Spärra kort\n6. Aktivera online-köp\n7. Kontakta oss\n8. Logga ut");
+        System.out.println("1. Insättning\n2. Uttag\n3. Se saldo\n4. Gör betalning\n5. Hantera lån\n6. Spärra kort\n7. Aktivera online-köp\n8. Kontakta oss\n9. Logga ut");
     }
 
     public boolean userChoice() throws InterruptedException {
@@ -25,11 +25,12 @@ public class UserInterface extends ContactsFromFile {
                 case 1 -> deposit();
                 case 2 -> withdraw();
                 case 3 -> functions.showBalance();
-                case 4 -> handleLoan();
-                case 5 -> suspendCard();
-                case 6 -> activateOnlinePurchases();
-                case 7 -> contactUs();
-                case 8 -> {
+                case 4 -> payment();
+                case 5 -> handleLoan();
+                case 6 -> suspendCard();
+                case 7 -> activateOnlinePurchases();
+                case 8 -> contactUs();
+                case 9 -> {
                     return logOut();
                     //Insättning, betalning, visa saldo, kontakta, ta lån, spärra konto, aktivera online köp, logout
                 }
@@ -123,5 +124,14 @@ public class UserInterface extends ContactsFromFile {
 
     public void activateOnlinePurchases() {
         functions.activateOnlinePurchases();
+    }
+    public void payment() throws InterruptedException {
+        System.out.print("OCR/Kommentar: ");
+        String ocrKommentar = scanner.nextLine();
+        System.out.print("Summa: ");
+        double paymentAmount = scanner.nextDouble();
+        scanner.nextLine();
+        bf.Pay(paymentAmount);
+        Thread.sleep(1500);
     }
 }
