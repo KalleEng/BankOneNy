@@ -101,8 +101,7 @@ public class UserInterface extends ContactsFromFile {
     }
 
     public void suspendCard() throws InterruptedException {
-        System.out.println("1 för att spärra 2 för att avbryta");
-        System.out.println("Wait for input"); //debug-statement
+        System.out.println("1. Spärra kort\n2. Avbryt");
         String choice = scanner.nextLine();
         if (choice.equals("1")) {
             bf.blockAccount();
