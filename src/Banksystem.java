@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Banksystem {
     private final String memberFile = "src/Konton.txt";
-    private String logInBirth = "Personnummer: ";
-    private String logInName = "Namn: ";
+    private final String logInBirth = "Personnummer: ";
+    private final String logInName = "Namn: ";
 
     public void registerMember(){
         Scanner scan = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class Banksystem {
         System.out.println(logInBirth);
         String personNumber = scan.nextLine();
 
-        System.out.println(logInName);
+        System.out.println(logInBirth);
         String customerName = scan.nextLine();
 
         saveMember(personNumber, customerName);
