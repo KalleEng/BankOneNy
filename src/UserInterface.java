@@ -85,7 +85,6 @@ public class UserInterface extends ContactsFromFile {
         System.out.println("Välj typ av lån\n" +
                 "1. Bolån\n" +
                 "2. privatlån");
-        scanner.nextLine();
         String typeOfLoan = scanner.nextLine();
         if (typeOfLoan.equals("1")) {
             System.out.println("Hur mycket vill du låna för bolån");
@@ -96,7 +95,6 @@ public class UserInterface extends ContactsFromFile {
         } else if (typeOfLoan.equals("2")) {
             System.out.println("Hur mycket vill du låna för privatlån");
             double loanAmount = scanner.nextDouble();
-            scanner.nextLine();
             functions.loan(loanAmount);
             Thread.sleep(1500);
         }

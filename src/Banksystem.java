@@ -22,7 +22,7 @@ public class Banksystem {
         System.out.println(logInBirth);
         String personNumber = scan.nextLine();
 
-        System.out.println(logInBirth);
+        System.out.println(logInName);
         String customerName = scan.nextLine();
 
         saveMember(personNumber, customerName);
