@@ -46,4 +46,12 @@ public class Functions extends ContactsFromFile {
         balance += amount;
         System.out.println("Du fick lån på " + amount + " kr");
     }
+
+    public void blockAccount(){
+        System.out.println("Kontot är spärrat!");
+    }
+
+    public void activateOnlinePurchases(){
+        System.out.println("Online köp är aktiverat");
+    }
 }

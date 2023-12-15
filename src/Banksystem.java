@@ -8,6 +8,14 @@ public class Banksystem {
     private final String logInBirth = "Personnummer: ";
     private final String logInName = "Namn: ";
 
+    public String getLogInBirth() {
+        return logInBirth;
+    }
+
+    public String getLogInName() {
+        return logInName;
+    }
+
     public void registerMember(){
         Scanner scan = new Scanner(System.in);
 
@@ -20,7 +28,7 @@ public class Banksystem {
         saveMember(personNumber, customerName);
 
     }
-    private void saveMember(String personNumber, String customerName){
+    public void saveMember(String personNumber, String customerName){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(memberFile, true))){
             bw.write(personNumber + "\n");
             bw.write(customerName + "\n");
@@ -40,7 +48,7 @@ public class Banksystem {
 
         return authenticateMember(personNumber, customerName);
     }
-    private boolean authenticateMember(String personNumber, String customerName) {
+    public boolean authenticateMember(String personNumber, String customerName) {
         try(Scanner fileScanner = new Scanner(new java.io.File(memberFile))) {
             boolean found = false;
 
