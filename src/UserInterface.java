@@ -89,16 +89,26 @@ public class UserInterface extends ContactsFromFile {
         if (typeOfLoan.equals("1")) {
             System.out.println("Hur mycket vill du låna för bolån");
             double loanAmount = scanner.nextDouble();
-            scanner.nextLine();
-            functions.loan(loanAmount);
-            Thread.sleep(1500);
+            if (loanAmount <= 0) {
+                System.out.println("Ogiltigt belopp");
+            } else {
+                scanner.nextLine();
+                functions.loan(loanAmount);
+                Thread.sleep(1500);
+            }
         } else if (typeOfLoan.equals("2")) {
             System.out.println("Hur mycket vill du låna för privatlån");
             double loanAmount = scanner.nextDouble();
-            functions.loan(loanAmount);
-            Thread.sleep(1500);
+            if (loanAmount <= 0) {
+                System.out.println("Ogiltigt belopp");
+            } else {
+                functions.loan(loanAmount);
+                Thread.sleep(1500);
+            }
         }
+
     }
+
 
     public void suspendCard() throws InterruptedException {
         System.out.println("1 för att spärra 2 för att avbryta");
